@@ -7,7 +7,7 @@ variable "location" {
 }
 
 variable "storage_account_name" {
-  default = "mariestorageaccount"
+  default = "mariepoppsstorageaccount"
 }
 
 variable "app_service_plan_name" {
@@ -15,5 +15,5 @@ variable "app_service_plan_name" {
 }
 
 variable "app_service_name" {
-  default = "pythonapiservice"
+  default = "pythonapiservicemariepopps"
 }
