@@ -6,14 +6,16 @@ variable "location" {
   default = "francecentral"
 }
 
-variable "storage_account_name" {
-  default = "mariepoppsstorageaccount"
-}
+# pour la bdd
+# variable "storage_account_name" {
+#   default = "mariepoppsstorageaccount"
+# }
 
 variable "app_service_plan_name" {
-  default = "my_app_service_plan"
+  default = "my_app_service_plan_mariepopps"
 }
 
+# app
 variable "app_service_name" {
-  default = "pythonapiservice"
+  default = "pythonapiservicemariepopps"
 }

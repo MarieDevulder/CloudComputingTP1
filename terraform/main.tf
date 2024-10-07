@@ -3,13 +3,14 @@ resource "azurerm_resource_group" "main" {
   location = var.location
 }
 
-resource "azurerm_storage_account" "main" {
-  name                     = var.storage_account_name
-  resource_group_name      = azurerm_resource_group.main.name
-  location                 = azurerm_resource_group.main.location
-  account_tier             = "Standard"
-  account_replication_type = "LRS"
-}
+#pour la bdd
+# resource "azurerm_storage_account" "main" {
+#   name                     = var.storage_account_name
+#   resource_group_name      = azurerm_resource_group.main.name
+#   location                 = azurerm_resource_group.main.location
+#   account_tier             = "Standard"
+#   account_replication_type = "LRS"
+# }
 
 resource "azurerm_service_plan" "main" {
   name                = var.app_service_plan_name
@@ -39,22 +40,22 @@ resource "azurerm_linux_web_app" "main" {
 }
 
 
+#blob
+# resource "azurerm_cosmosdb_account" "main" {
+#   name                = "marie-cosmos-account"
+#   location            = azurerm_resource_group.main.location
+#   resource_group_name = azurerm_resource_group.main.name
+#   offer_type          = "Standard"
 
-resource "azurerm_cosmosdb_account" "main" {
-  name                = "marie-cosmos-account"
-  location            = azurerm_resource_group.main.location
-  resource_group_name = azurerm_resource_group.main.name
-  offer_type          = "Standard"
+#   consistency_policy {
+#     consistency_level = "Session"
+#   }
 
-  consistency_policy {
-    consistency_level = "Session"
-  }
-
-  geo_location {
-    location          = azurerm_resource_group.main.location
-    failover_priority = 0
-  }
-}
+#   geo_location {
+#     location          = azurerm_resource_group.main.location
+#     failover_priority = 0
+#   }
+# }
 
 
 resource "azurerm_app_service_source_control" "main" {
@@ -63,8 +64,9 @@ resource "azurerm_app_service_source_control" "main" {
   branch         = "main"
 }
 
-resource "azurerm_cosmosdb_sql_database" "main" {
-  name                = "mariedatabase"
-  resource_group_name = azurerm_resource_group.main.name
-  account_name        = azurerm_cosmosdb_account.main.name
-}
+
+# resource "azurerm_cosmosdb_sql_database" "main" {
+#   name                = "mariedatabase"
+#   resource_group_name = azurerm_resource_group.main.name
+#   account_name        = azurerm_cosmosdb_account.main.name
+# }
