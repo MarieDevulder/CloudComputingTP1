@@ -56,7 +56,7 @@ resource "azurerm_cosmosdb_account" "main" {
   }
 }
 
-#pb ici (essaie de push sur le repo)
+
 resource "azurerm_app_service_source_control" "main" {
   app_id         =  azurerm_linux_web_app.main.id
   repo_url       = "https://github.com/MarieDevulder/CloudComputingTP1" # repo github

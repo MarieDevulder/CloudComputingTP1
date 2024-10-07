@@ -15,5 +15,5 @@ variable "app_service_plan_name" {
 }
 
 variable "app_service_name" {
-  default = "pythonapiservicemariepopps"
+  default = "pythonapiservice"
 }
